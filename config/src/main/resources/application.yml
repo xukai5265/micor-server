@@ -1,0 +1,24 @@
+server:
+  port: 8000
+
+logging:
+  file: common-microservicehx-config.log
+  level: 
+    org.springframework.boot.env.PropertySourcesLoader: TRACE
+    org.springframework.web: INFO
+spring:
+  application:
+    name: configserver
+  cloud:
+    config:
+      server:
+        git:
+          uri: https://github.com/xukai5265/cloud-config-repo.git
+
+          # uri: http://root@10.167.202.133/root/config-repo.git
+          # username: trolley
+          # password: strongpassword
+          # searchPaths: '{application}'
+          # force-pull: true
+          
+

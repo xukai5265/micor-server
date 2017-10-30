@@ -1,0 +1,9 @@
+spring:
+  application:
+    name: eurekaserver-hx
+  profiles:
+    active: production
+  cloud:
+    config:
+      uri: http://configserver:8000
+      label: master

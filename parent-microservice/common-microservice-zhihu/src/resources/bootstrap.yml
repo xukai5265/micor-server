@@ -1,0 +1,14 @@
+spring:
+  application:
+    name: zhihu
+  profiles:
+    active: '@app.mobilecrawlertask.active@'
+  cloud:
+    config:
+      uri: http://localhost:8000
+      label: master
+  sleuth: 
+    sampler: 
+      percentage: 1
+ #zipkin地址，Sleuth会将trace数据以http的方式发送，采样率percentage=1意味着100%发送 
+ #sleuth也会产生性能消耗，因此percentage=1只是为了方便调试用例，生产环境下根据需要配置

@@ -1,0 +1,45 @@
+server:
+  port: 6002
+logging:
+  file: common-microservicehx-zhihu-6002.log
+  level: 
+    com.gargoylesoftware.htmlunit.javascript.StrictErrorReporter : OFF
+    com.gargoylesoftware.htmlunit.javascript.host.ActiveXObject : OFF
+    com.gargoylesoftware.htmlunit.host.html.HTMLDocument : OFF
+    com.gargoylesoftware.htmlunit.html.HtmlScript : OFF
+    org.springframework.boot.env.PropertySourcesLoader: TRACE
+    org.springframework.web: DEBUG
+management: 
+  security: 
+    enabled: false
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8888
+#      defaultZone: ${defaultZone}
+
+---
+#数据源：
+spring:
+  datasource:
+    hikari: 
+      minimum-idle: ${datasource.jdbc.minIdle}
+      maximum-pool-size: ${datasource.jdbc.maxPoolSize}
+    driver-class-name: ${datasource.jdbc.driver}
+    url: ${datasource.jdbc.url}
+    username: ${datasource.jdbc.username}
+    password: ${datasource.jdbc.password}
+    type: ${datasource.jdbc.type}
+  jpa: 
+    show-sql: false
+    hibernate: 
+        #创建数据库使用
+        ddl-auto: update
+        naming:
+          strategy : org.hibernate.cfg.ImprovedNamingStrategy  
+    properties:  
+      hibernate:  
+#       dialect: com.microservice.persistence.SRDB10Dialect
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+#       dialect: org.hibernate.dialect.MySQLDialect
+          
